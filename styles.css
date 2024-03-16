@@ -1,0 +1,116 @@
+/* 
+	
+	sintaxis
+	p -> etiqueta
+	.clase -> clase
+	#id -> id
+
+	// avanzados
+	* -> todo
+	parent child -> hijos del padre
+	parent > child -> hijos directos
+
+	especificidad
+	entre mas especifico seas, mayor fuerza tendra la regla de css
+	jerarquia
+
+	1. # id
+	2. todos los demas
+
+
+*/
+
+/* h1 {
+	color: red;
+	font-size: 50px;
+}
+
+p {
+	font-size: 40px;
+}
+
+#main-title {
+	color: black;
+	border: none;	
+}
+
+.heading {
+	color: black;
+}
+
+h1.texto-bonito {
+	color: red;
+}
+
+.texto-bonito {
+	font-size: 50px;
+	font-family: cursive;
+	color: #b4d455;
+}
+
+* {
+	border: 1px solid black;	
+}
+
+/* div p {
+	color: cyan;
+} */
+
+/* div > p {
+	color: cyan;	
+} */
+
+/* p.andres {
+	color: #c4f4;
+} */ 
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* flex box */
+/* grid */
+
+main {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: cyan;
+}
+
+main img:first-child {
+	border: 1px solid black;
+}
+
+img {
+	position: absolute;
+	width: 50px;
+}
+
+img[alt="1"] {
+	top: 50px;
+	right: 50px;
+}
+
+img[alt="2"] {
+	top: 100px;
+	right: 100px;
+}
+
+img[alt="3"] {
+	bottom: 50px;
+	left: 50px;
+}
+img[alt="4"] {
+	bottom: 100px;
+	left: 100px;
+}
+
+img[alt="5"] {
+	top: 200px;
+	right: 500px;
+}
+

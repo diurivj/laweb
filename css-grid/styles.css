@@ -1,0 +1,63 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	height: 100dvh;
+	/* haste grid po favo */
+	display: grid;
+	/* cuantas columnas quiero, columns */
+	grid-template-columns: repeat(2, 1fr);
+	/* cuantas filas quiero, rows */
+	grid-template-rows: repeat(2, 1fr);
+	/* espacio entre rows y columns */
+	gap: 16px;
+
+	/* si no alineamos los hijos explicitamente */
+	/* css grid alineara los hijos de manera automatica */
+	/* de arriba hacia abajo, de izquierda a derecha */
+	/* align-items: center; /* --> short hand  place-items: center; */
+	/* justify-items: center; --> short hand  place-items: center; */ 
+
+	
+}
+
+.container div {
+	width: 50%;
+	height: 50%;
+}
+
+.container div:first-child {
+	background-color: rgb(241, 79, 33);
+	/* por coordenadas se puede decir */
+	/* grid-column-start: 1;
+	grid-column-end: 2; */
+
+	/*  verticalmente */
+	/* align-self */
+	/* start -> arriba */
+	/* end -> abajo */
+
+	/* horizontal */
+	/* start -> left */
+	/* end -> right */
+	align-self: end;
+	justify-self: end;
+
+}
+
+.container div:nth-child(2) {
+	background-color: rgb(126, 185, 0);
+	align-self: end;
+	justify-self: start;
+}
+
+.container div:nth-child(3) {
+	background-color: rgb(0, 163, 238);
+	justify-self: end;
+}
+
+.container div:last-child {
+	background-color: rgb(254, 184, 0);
+}

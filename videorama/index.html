@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {},
+        },
+      };
+    </script>
+    <title>Videorama</title>
+  </head>
+  <body>
+    <header class="py-4 px-6">
+      <h1 class="text-6xl font-black">Videorama</h1>
+    </header>
+
+    <main class="grid grid-cols-[2fr_1fr] gap-x-10 px-6">
+      <section>
+        <!-- Header con el CTA para ordenar -->
+        <div class="flex justify-between">
+          <h2 class="text-3xl">Recomendaciones</h2>
+          <div class="flex items-center gap-x-2">
+            <label class="text-xl">Ordenar</label>
+            <select
+              name="order-by"
+              class="text-xl border border-black rounded-lg p-1"
+            >
+              <option value="a-z">Alfabeticamente (A-Z)</option>
+              <option value="z-a">Alfabeticamente (Z-A)</option>
+              <option value="rating-lower">Rating (Menor a mayor)</option>
+              <option value="rating-higher">Rating (Mayor a menor)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Vista de lista, de las peliculas -->
+        <div id="movies_list" class="grid grid-cols-5 gap-4 mt-10"></div>
+
+        <!-- Vista de detalle, la pelicula seleccionada -->
+        <div id="movie_details" class="mt-10 space-y-4 mx-auto"></div>
+      </section>
+      <form class=""></form>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

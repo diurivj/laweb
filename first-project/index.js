@@ -75,12 +75,12 @@ const people = ['Diego', 'Betito', 'Kandres', 'Ulises'];
 // }
 // const uppercasedFoods = [];
 
-// // forEach NO REGRESA NADA!!!!!!!
+// forEach NO REGRESA NADA!!!!!!!
 foods.forEach((element, index) => {
   uppercasedFoods.push(element.toUpperCase());
 });
 
-// // map REGRESA UN ARRAY NUEVO!!!!! SIN MODIFICAR EL ARRAY ORIGINAL
+// map REGRESA UN ARRAY NUEVO!!!!! SIN MODIFICAR EL ARRAY ORIGINAL
 const newArray = foods.map((element, index) => {
   return element.toUpperCase();
 });

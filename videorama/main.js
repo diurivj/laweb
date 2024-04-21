@@ -121,28 +121,80 @@ const nameOrderedAZ = movies.toSorted((a, b) => {
   return a.name.localeCompare(b.name);
 });
 
-const nameOrderedZA = movies.toSorted((a, b) => {
-  return b.name.localeCompare(a.name);
-});
-
-const ratingOrderedLower = movies.toSorted((a, b) => {
-  return a.rating - b.rating;
-});
-
-const ratingOrderedHigher = movies.toSorted((a, b) => {
-  return b.rating - a.rating;
-});
-
 // MANIPULACION DEL DOM
 // 1. Manipular el contenedor de vista de lista
 const moviesList = document.getElementById('movies_list');
 const movieDetails = document.getElementById('movie_details');
 const orderBy = document.getElementsByName('order-by')[0];
+const form = document.getElementById('add-movie');
+
+// Form submission
+form.onsubmit = event => {
+  // 1. prevenir el comportamiento default
+  event.preventDefault();
+  // 2. Obtener todos los valores
+  const name = document.getElementById('movie-title').value;
+  const duration = document.getElementById('movie-duration').value;
+  const director = document.getElementById('movie-director').value;
+  const rating = document.getElementById('movie-rating').value;
+  const releaseDate = document.getElementById('movie-release-year').value;
+  let genres = document.getElementById('movie-genres').value;
+  const image = document.getElementById('movie-image').value;
+
+  const releaseYear = releaseDate.split('-')[0];
+  genres = genres.split(', ');
+
+  if (
+    name === '' ||
+    duration === '' ||
+    director === '' ||
+    rating === '' ||
+    releaseDate === '' ||
+    genres === '' ||
+    image === ''
+  ) {
+    alert('Por favor, llena todos los campos');
+    return;
+  }
+
+  const movie = {
+    name, // name: name
+    duration,
+    director,
+    rating,
+    releaseYear,
+    genres,
+    image,
+  };
+
+  renderMovie(movie, 'prepend');
+  movies.push(movie);
+
+  // 3. Limpiar el form
+  const form = event.target;
+  form.reset();
+};
 
 // Order by
 orderBy.onchange = event => {
   // 1. delete everything
   moviesList.innerHTML = ``;
+
+  const nameOrderedAZ = movies.toSorted((a, b) => {
+    return a.name.localeCompare(b.name);
+  });
+
+  const nameOrderedZA = movies.toSorted((a, b) => {
+    return b.name.localeCompare(a.name);
+  });
+
+  const ratingOrderedLower = movies.toSorted((a, b) => {
+    return a.rating - b.rating;
+  });
+
+  const ratingOrderedHigher = movies.toSorted((a, b) => {
+    return b.rating - a.rating;
+  });
 
   // 2. tomamos el valor del select
   const selectValue = event.target.value;
@@ -157,46 +209,69 @@ orderBy.onchange = event => {
   }
 };
 
-function renderMoviesList(arr) {
-  arr.forEach(movie => {
-    // 2. Crear el elemento, el node, el hijo, el card
-    const card = document.createElement('div');
-    card.setAttribute(
-      'class',
-      'border border-black h-96 space-y-2 cursor-pointer'
-    );
+function renderMovieGenres(movie) {
+  return movie.genres.map(genre => genre).join(', ');
+}
 
-    card.innerHTML = `
+function renderRating(movie) {
+  const stars = Array.from(Array(Math.round(movie.rating)).keys());
+  return stars.map(star => `⭐️`).join('');
+}
+
+function renderMovie(movie, addStrategy) {
+  // 2. Crear el elemento, el node, el hijo, el card
+  const card = document.createElement('div');
+  card.setAttribute(
+    'class',
+    'border border-black h-96 space-y-2 cursor-pointer'
+  );
+
+  card.innerHTML = `
 			<img src="${movie.image}" alt="${movie.name}" class="aspect-video object-cover" />
 			<p class="text-2xl px-2 font-medium">${movie.name}</p>
 			<p class="text-2xl px-2 font-light">Duracion: ${movie.duration} mins</p>
 			<p class="text-2xl px-2 font-light">Rating: ${movie.rating}</p>	
 		`;
 
-    // Listener -> Acciones que performea el usuario
-    card.onclick = function (event) {
-      movieDetails.innerHTML = `
-				<img src="${movie.image}" alt="${movie.name}" />
-				<p class="text-4xl px-2 font-medium">${movie.name}</p>
-				<p class="text-4xl px-2 font-light">Duracion: ${movie.duration} mins</p>
-				<p class="text-4xl px-2 font-light">Rating: ${movie.rating}</p>
+  // Listener -> Acciones que performea el usuario
+  card.onclick = function (event) {
+    movieDetails.innerHTML = `
+				<img src="${movie.image}" alt="${movie.name}" class="aspect-video object-cover" />
+        <div class="flex justify-between">
+				  <p class="text-4xl px-2 font-medium">${movie.name} <span class="font-light text-3xl">(${movie.director})</span></p>
+          <p class="text-4xl px-2 font-medium">${renderRating(movie)}</p>
+        </div>
+        <div class="flex justify-between">
+				  <p class="text-4xl px-2 font-medium">${movie.duration} mins</p>
+          <p class="text-4xl px-2 font-medium">${movie.releaseYear}</p>
+        </div>
+        <p class="text-4xl px-2 font-medium">${renderMovieGenres(movie)}</p>
 			`;
 
-      const movieDetailsCoordinates = movieDetails.getBoundingClientRect();
-      const offset = 1000;
-      const top =
-        movieDetailsCoordinates.bottom +
-        movieDetailsCoordinates.height +
-        offset;
+    const movieDetailsCoordinates = movieDetails.getBoundingClientRect();
+    const offset = 1000;
+    const top =
+      movieDetailsCoordinates.bottom + movieDetailsCoordinates.height + offset;
 
-      window.scrollTo({
-        behavior: 'smooth',
-        top: top,
-      });
-    };
+    window.scrollTo({
+      behavior: 'smooth',
+      top: top,
+    });
+  };
 
-    // 3. Apendar elementos al container
+  // 3. Apendar elementos al container
+  if (addStrategy === 'append') {
     moviesList.appendChild(card);
+  } else if (addStrategy === 'prepend') {
+    moviesList.prepend(card);
+  } else {
+    moviesList.appendChild(card);
+  }
+}
+
+function renderMoviesList(arr) {
+  arr.forEach(movie => {
+    renderMovie(movie);
   });
 }
 

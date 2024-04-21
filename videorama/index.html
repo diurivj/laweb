@@ -41,9 +41,83 @@
         <div id="movies_list" class="grid grid-cols-5 gap-4 mt-10"></div>
 
         <!-- Vista de detalle, la pelicula seleccionada -->
-        <div id="movie_details" class="mt-10 space-y-4 mx-auto"></div>
+        <div id="movie_details" class="my-10 space-y-4 flex flex-col"></div>
       </section>
-      <form class=""></form>
+
+      <!-- Formulario para crear pelicula -->
+      <form class="space-y-4" id="add-movie">
+        <h2 class="text-3xl">Agrega tu pelicula favorita</h2>
+        <div class="space-y-1">
+          <label for="movie-title">Nombre de la pelicula</label>
+          <input
+            id="movie-title"
+            type="text"
+            name="movie-title"
+            class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </div>
+        <div class="space-y-1">
+          <label for="movie-duration">Duracion</label>
+          <input
+            id="movie-duration"
+            name="movie-duration"
+            type="number"
+            inputmode="numeric"
+            class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </div>
+        <div class="space-y-1">
+          <label for="movie-director">Director</label>
+          <input
+            id="movie-director"
+            name="movie-director"
+            type="text"
+            class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </div>
+        <div class="space-y-1">
+          <label for="movie-rating">Rating</label>
+          <input
+            id="movie-rating"
+            name="movie-rating"
+            type="text"
+            inputmode="numeric"
+            class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </div>
+        <div class="space-y-1">
+          <label for="movie-release-year">Lanzamiento</label>
+          <input
+            id="movie-release-year"
+            name="movie-release-year"
+            type="date"
+            class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </div>
+        <div class="space-y-1">
+          <label for="movie-genres">Genero(s)</label>
+          <textarea
+            id="movie-genres"
+            name="movie-genres"
+            class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          ></textarea>
+        </div>
+        <div class="space-y-1">
+          <label for="movie-image">Imagen</label>
+          <input
+            id="movie-image"
+            name="movie-image"
+            type="text"
+            class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          />
+        </div>
+        <button
+          type="submit"
+          class="rounded-lg w-full px-4 py-3 text-lg flex items-center justify-center bg-black text-white"
+        >
+          Agregar pelicula
+        </button>
+      </form>
     </main>
 
     <script src="./main.js"></script>

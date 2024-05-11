@@ -1,21 +1,4 @@
-.main-grid {
-	display: grid;
-	grid-template-areas:
-		"header header aside"
-		"main main aside"
-		"main main aside";
-	gap: 16px;
-	grid-template-columns: repeat(3, 1fr);
-}
-
-.header-grid {
-	grid-area: header;
-}
-
-.main-grid {
-	grid-area: main;
-}
-
-.aside-grid {
-	grid-area: aside;
+::backdrop {
+	background-color: #000;
+	opacity: 75%	;
 }

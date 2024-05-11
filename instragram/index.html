@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Instagram</title>
-    <link rel="stylesheet" href="./styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -13,10 +12,11 @@
         },
       };
     </script>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="px-10 py-4 space-y-20 main-grid grid">
-      <header class="flex gap-x-20 header-grid">
+    <div class="px-10 py-4 space-y-10 max-w-7xl mx-auto">
+      <header class="flex gap-x-10">
         <img
           class="rounded-full w-[150px] h-[150px]"
           src="https://static.frontendmasters.com/assets/teachers/theprimeagen/thumb@2x.jpg"
@@ -28,30 +28,54 @@
         </div>
       </header>
 
-      <main id="photos-grid" class="grid grid-cols-3 gap-2 main-grid">
+      <main id="photos-grid" class="grid grid-cols-3 gap-2">
         <img
+          alt="Miren mi nueva mesa prrrrossss!!!"
           class="w-full h-full aspect-square object-cover"
           src="https://images.unsplash.com/photo-1604578762246-41134e37f9cc?q=80&w=2908&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         />
         <img
+          alt="Apoco no se les antoja echarse una pestanita aqui prrrosss!!!"
           class="w-full h-full aspect-square object-cover"
           src="https://images.unsplash.com/photo-1701891928981-d3d6b5b43dc8?q=80&w=3840&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         />
         <img
+          alt="Aqui echo la meme, y uno que otro pedillo tambien!"
           class="w-full h-full aspect-square object-cover"
           src="https://images.unsplash.com/photo-1699869653495-fe26f4c70b3e?q=80&w=3840&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         />
       </main>
-
-      <aside class="aside-grid">
-        <img
-          id="image-detail"
-          src=""
-          alt=""
-          class="aspect-square object-cover"
-        />
-      </aside>
     </div>
+
+    <dialog id="modal">
+      <div class="relative">
+        <button
+          id="close-modal"
+          class="absolute flex items-center justify-center top-2 right-2 h-8 w-8"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-4 h-4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        <img id="image-detail" class="aspect-square object-cover" />
+        <div
+          class="absolute bottom-0 right-0 left-0 text-white bg-black/70 p-2"
+        >
+          <p id="image-detail-text" class="text-xl"></p>
+        </div>
+      </div>
+    </dialog>
   </body>
   <script src="./main.js"></script>
 </html>

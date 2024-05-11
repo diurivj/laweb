@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {},
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div class="px-10 py-4 space-y-20 main-grid grid">
+      <header class="flex gap-x-20 header-grid">
+        <img
+          class="rounded-full w-[150px] h-[150px]"
+          src="https://static.frontendmasters.com/assets/teachers/theprimeagen/thumb@2x.jpg"
+          alt="theprimeagen"
+        />
+        <div class="space-y-2">
+          <h1 class="text-3xl font-mono">The primeagen</h1>
+          <p class="text-xl text-gray-600">420 posts</p>
+        </div>
+      </header>
+
+      <main id="photos-grid" class="grid grid-cols-3 gap-2 main-grid">
+        <img
+          class="w-full h-full aspect-square object-cover"
+          src="https://images.unsplash.com/photo-1604578762246-41134e37f9cc?q=80&w=2908&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        />
+        <img
+          class="w-full h-full aspect-square object-cover"
+          src="https://images.unsplash.com/photo-1701891928981-d3d6b5b43dc8?q=80&w=3840&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        />
+        <img
+          class="w-full h-full aspect-square object-cover"
+          src="https://images.unsplash.com/photo-1699869653495-fe26f4c70b3e?q=80&w=3840&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        />
+      </main>
+
+      <aside class="aside-grid">
+        <img
+          id="image-detail"
+          src=""
+          alt=""
+          class="aspect-square object-cover"
+        />
+      </aside>
+    </div>
+  </body>
+  <script src="./main.js"></script>
+</html>

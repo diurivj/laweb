@@ -25,6 +25,13 @@
         <div class="space-y-2">
           <h1 class="text-3xl font-mono">The primeagen</h1>
           <p class="text-xl text-gray-600">420 posts</p>
+
+          <button
+            id="open-add-post"
+            class="bg-black text-white px-4 py-2 rounded-lg"
+          >
+            Agregar post
+          </button>
         </div>
       </header>
 
@@ -75,6 +82,24 @@
           <p id="image-detail-text" class="text-xl"></p>
         </div>
       </div>
+    </dialog>
+
+    <dialog id="add-post" class="p-10 w-96 space-y-4">
+      <div class="gap-y-1 flex flex-col">
+        <label class="text-lg" for="post-src">Agrega el src de tu post</label>
+        <input class="border px-4 py-2 rounded-md" id="post-src" type="text" />
+      </div>
+      <div class="gap-y-1 flex flex-col">
+        <label for="post-alt">Agrega la descripcion de tu post</label>
+        <input class="border px-4 py-2 rounded-md" id="post-alt" type="text" />
+      </div>
+      <button
+        class="bg-black text-white px-4 py-2 rounded-lg"
+        type="button"
+        id="submit-post"
+      >
+        Agregar post
+      </button>
     </dialog>
   </body>
   <script src="./main.js"></script>

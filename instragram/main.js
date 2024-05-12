@@ -9,6 +9,9 @@ const newPostSrc = document.querySelector('input#post-src');
 const newPostAlt = document.querySelector('input#post-alt');
 const addPostButton = document.getElementById('submit-post');
 
+// Local storage -> storage cliente -> el navegador -> es muy dificil de usar
+// Bases de datos -> mas facil de usar -> es igual de dificil de usar
+
 // Este ciclo for, se le conoce como for of
 for (const image of mainElement.children) {
   image.onclick = () => {
@@ -30,11 +33,16 @@ addPostButton.onclick = () => {
   img.setAttribute('src', newPostSrc.value);
   img.setAttribute('alt', newPostAlt.value);
   img.className = 'w-full h-full aspect-square object-cover';
-  showPhotoInModal(img);
-  mainElement.appendChild(img);
 
-  // TODO: agregar la funcion de que cuando le des click, la muestre en el modal alv pariente!
+  img.onclick = () => {
+    showPhotoInModal(img);
+  };
+
+  mainElement.appendChild(img);
   addPostDialog.close();
+
+  newPostSrc.value = '';
+  newPostAlt.value = '';
 };
 
 function showPhotoInModal(image) {

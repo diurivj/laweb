@@ -128,3 +128,7 @@ COMMIT;
 ```
 
 Happy coding 😎, Si lo hiciste bien, cual es la frase secreta?
+
+P.D.
+
+Copia y pega los queries que ejecutaste en la terminal o los screenshots de turso para saber cual fue tu solucion

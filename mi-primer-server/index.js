@@ -4,9 +4,8 @@ const turso = require('@libsql/client');
 http
   .createServer((request, response) => {
     const client = turso.createClient({
-      url: 'libsql://instagrammm-diurivj.turso.io',
-      authToken:
-        'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTY3Mzc1OTgsImlkIjoiOTg0MzRkYzItZGZlZi00N2I5LWJkZTMtOTdhZjE5NjBmZWJlIn0.2zrSWH1vzoIVUUHCzq0NQQ03t_JKS8lPSG_v5dvKSnBAFpTnre27x4q85x6N67k7fBCTRKmji9fssEfL8BuOAQ',
+      url: '',
+      authToken: '',
     });
 
     // Home page

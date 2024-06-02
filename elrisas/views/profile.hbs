@@ -1,0 +1,20 @@
+<main class="max-w-screen-2xl font-inter h-dvh justify-center text-center flex flex-col mx-auto py-10">
+	<section>
+		<h1 class="text-4xl">
+			@{{user.username}}
+		</h1>
+		<p class="text-xl">
+			{{user.name}}
+		</p>
+	</section>
+
+	<section class="mt-10">
+		<ul class="space-y-2">
+		{{#each jokes}}
+			<li>
+				<a class="underline" href="/jokes/{{this.joke_id}}">{{this.title}}</a>
+			</li>
+		{{/each}}
+		</ul>
+	</section>
+</main>

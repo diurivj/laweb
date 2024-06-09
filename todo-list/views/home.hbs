@@ -1,0 +1,35 @@
+<main class="bg-[#fff] h-dvh flex flex-col items-center">
+	<h1 class="text-[#b83f45] text-7xl font-extralight pt-10 pb-4">todos</h1>
+
+	<form method="post" action="/create">
+		<input
+			name="todo"
+			type="text" 
+			placeholder="que hay que hacer?" 
+			class="shadow-md border px-6 py-4 w-96 outline-none focus:ring-1 focus:ring-[#b83f45]" 
+		/>
+	</form>
+
+	{{#if todos.length}}
+		<ul class="w-96 mt-2 shadow-md py-2 bg-white divide-y">
+			{{#each todos}}
+				<li class="text-xl py-2 px-4">
+					<form method="post" action="/update">
+						<input name="completed" value="{{this.completed}}" type="hidden">
+						<button class="{{#if this.completed}}line-through{{/if}}" name="todoId" value="{{this.id}}" type="submit">{{this.todo}}</button>
+					</form>
+				</li>
+			{{/each}}	
+		</ul>
+	{{/if}}
+
+	<form class="mt-4 flex gap-x-4">
+		<button>Todas</button>
+		<button name="sort" value="0">Pendientes</button>
+		<button name="sort" value="1">Completadas</button>
+	</form>
+
+	<form method="post" action="/delete" class="mt-10">
+		<button>Presionar solo si eres el becario</button>
+	</form>
+</main>

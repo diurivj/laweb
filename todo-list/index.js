@@ -3,9 +3,8 @@ import bodyParser from 'body-parser';
 import { createClient } from '@libsql/client';
 
 const turso = createClient({
-  url: 'libsql://todos-diurivj.turso.io',
-  authToken:
-    'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MTc5NDQxNDEsImlkIjoiZmE0NDJjZDktYmUxMy00NGMwLWE3MjQtZjg5ZTlkNWI3NTczIn0.hmli271z7qUpd52OhexhOinemaFx0LO1USaxv2bS94VIoEtd2c-CDL_HRv1eNA7qC2_TzwJln5byXlLmN5RdAw',
+  url: '',
+  authToken: '',
 });
 
 // Aqui hay magia oscura

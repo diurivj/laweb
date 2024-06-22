@@ -1,0 +1,52 @@
+.card {
+  max-width: 360px;
+  border: 1px solid black;
+}
+
+.card img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+.card p {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  padding: 16px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-form label {
+  font-size: 24px;
+}
+
+.input-form input {
+  width: fit-content;
+  font-size: 24px;
+}
+
+aside > * + * {
+  margin-top: 16px;
+}
+
+aside > button {
+  padding: 8px 16px;
+}
